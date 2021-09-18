@@ -6,6 +6,8 @@ This directory is mounted into the tool docker containers at `/app` and all tool
 
 The tools themselves use a standard 1and1internet php build environment image that is maintained. In addition we add xdebug to it for IDE debugging.
 
+Finally, an example GitHub action workflow is included to build and run PHP Unit and PHPCS on push.
+
 ## Usage
 
 All the tools can be run using `docker-compose` and work on any x64 platform that can run docker-compose.
