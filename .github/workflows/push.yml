@@ -5,9 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: File Permissions
+        run: sudo chown -r 1000:1000 .
       - name: Build
-        run: sudo docker-compose run --rm composer install
+        run: docker-compose run --rm composer install
       - name: Test
-        run: sudo docker-compose run --rm phpunit
+        run: docker-compose run --rm phpunit
       - name: Lint
-        run: sudo docker-compose run --rm phpcs
+        run: docker-compose run --rm phpcs
