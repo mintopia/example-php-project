@@ -1,0 +1,13 @@
+name: Docker Compose Actions Workflow
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        run: docker-compose run --rm composer install
+      - name: Test
+        run: docker-compose run --rm phpunit
+      - name: Lint
+        run: docker-compose run --rm phpcs
