@@ -1,0 +1,18 @@
+version: '3'
+services:
+  debug-cli: &debug-cli
+    build: ./docker/debug-cli
+    volumes:
+      - .:/app
+  composer:
+    <<: *debug-cli
+    entrypoint: composer
+  phpunit:
+    <<: *debug-cli
+    entrypoint: vendor/bin/phpunit
+  phpcs:
+    <<: *debug-cli
+    entrypoint: vendor/bin/phpcs
+  phpcbf:
+    <<: *debug-cli
+    entrypoint: vendor/bin/phpcbf
