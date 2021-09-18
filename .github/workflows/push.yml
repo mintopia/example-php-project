@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: File Permissions
-        run: sudo chown -r 1000:1000 .
+        run: sudo chown -R 1000:1000 .
       - name: Build
         run: docker-compose run --rm composer install
       - name: Test
